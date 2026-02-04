@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
-'''
+
 x = np.array([-1, 0, 1 ,2, 3])
 y = np.array([-3, -1, 1, 3, 5])
 
@@ -22,7 +22,7 @@ print(reg)
 plt.plot(a, b, 'r')
 plt.plot(x, y, 'o')
 plt.show()
-'''
+
 
 x = np.array([0, 0.5, 0.9, 1.6, 2])
 y = np.array([1, 2.5, 4, 6, 7.1])
