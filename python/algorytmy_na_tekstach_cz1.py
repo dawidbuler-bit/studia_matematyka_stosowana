@@ -8,9 +8,6 @@ else:
     print(ciag_znakow[:2], ciag_znakow[-2:])
 
 
-zdanie = input(str("Podaj jakieś zdanie: "))
-
-
 #zadanie 3
 ciag_znakow = input(str("Podaj jakiś ciąg znaków: "))
 
@@ -56,7 +53,7 @@ for key, value in slownik.items():
 
 print([i for i in ciag_znakow if i != "p"])
 
-#zad 8 
+#zad 8
 
 def sortuj_litery():
     zdanie = input("Wprowadź zdanie: ")
@@ -66,7 +63,7 @@ def sortuj_litery():
 
     for slowo in zdanie:
         if (slowo.lower() >= 'a' and slowo.lower() <= 'z'):
-            litery += slowo.lower()  
+            litery += slowo.lower()
 
     posortowane_litery = ""
     while len(litery) > 0:
