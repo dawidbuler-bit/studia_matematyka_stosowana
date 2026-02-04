@@ -1,4 +1,4 @@
-'''
+
 #zad 1
 def babel(T):
     n = len(T)
@@ -110,7 +110,7 @@ def znajdz_min_max(T):
 
 T = [1, 5, 7, 3, 9, 11, 13]
 print(znajdz_min_max(T))
-'''
+
 
 #zad 6
 
