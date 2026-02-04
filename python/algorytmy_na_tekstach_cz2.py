@@ -6,7 +6,7 @@ def zgodnosc(n, m):
 
 print(zgodnosc([1,2,3,4,5],[2,1,4,3,5]))
 
-'''
+
 def alfasort(n):
     return sorted(n)
 
@@ -77,4 +77,3 @@ def szukanie3(slowo, wzorzec):
 
 print(szukanie3(slowo,wzorzec))
 
-'''
