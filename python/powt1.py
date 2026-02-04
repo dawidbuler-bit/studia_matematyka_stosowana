@@ -1,6 +1,6 @@
 
 import math
-'''
+
 a = int(input("Podaj pierwszą liczbę : "))
 b = int(input("Podaj drugą liczbę : "))
 
@@ -16,7 +16,7 @@ pot_b = a ** b
 print("Wynik dodawania ", a, "oraz", b, ":", suma, "\n ",
       "Wynik odejmowania ", a, "oraz", b, ":", roznica, "\n",
       "Wynik iloczynu", a, "oraz", b, ":", iloczyn, "\n",
-      "Wynik ilorazu ", a, "oraz", b, ":", iloraz, "\n"
+      "Wynik ilorazu ", a, "oraz", b, ":", iloraz, "\n",
       "Wynik pierwiastka kwadratowego sumy ", a, "oraz", b, ":", sqr_sumy, "\n"
       "Wynik liczby", a, "podniesionej do potęgi", b, ":", pot_b, "\n",
       "Wynik liczby", b, "podniesionej do potęgi", a, ":", pot_a)
@@ -26,7 +26,7 @@ def okrag(r):
     if r < 0 : return False
     pole = math.pi*(r**2)
     obwod = math.pi*(2*r)
-    return "Pole koła o promieniu: ", r, "wynosi: ", pole, "\n""Obwód koła o promieniu: ", r, "wynosi: ", obwod
+    return "Pole koła o promieniu: ", r, "wynosi: ", pole, "\n" "Obwód koła o promieniu: ", r, "wynosi: ", obwod
 print(okrag(13))
 
 n = int(input("Podaj liczbę : "))
@@ -136,7 +136,7 @@ pierwsza = [1,3,4,5,9,10]
 for i in pierwsza:
     if i % 2:
         print(i**2)
-'''
+
 
 
 n = '123-321-123'
