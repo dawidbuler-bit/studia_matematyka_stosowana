@@ -1,4 +1,3 @@
-'''
 def deszyfr(tekst):
     n = len(tekst)
     plotek1 = (n+3) // 4
@@ -42,7 +41,7 @@ def mono(tekst,alfabet):
     return alfabet2
 
 print(mono('kazdy jest kowalem swego losu','ABCDEFGHIJKLMNOPQRSTUVWXYZ' ))
-'''
+
 
 def onom(tekst, alfabet):
     tekst = tekst.replace(' ', '').upper()
