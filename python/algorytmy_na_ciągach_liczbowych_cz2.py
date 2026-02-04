@@ -1,5 +1,4 @@
 #zad 1
-'''
 def szukaj(T):
     licznik = {}
 
@@ -28,7 +27,7 @@ print(szukaj([4, 4, 2, 2, 2, 3, 1, 1, 6, 6, 0]))
 
 
 #zad 2
-def szukaj(T):
+def szukaj_inaczej(T):
     licznik = {}
 
     for element in T:
@@ -46,7 +45,7 @@ def szukaj(T):
                 return klucz
     return None
 
-print(szukaj([4, 4, 4, 4, 4, 4, 4, 1, 6, 6, 0]))
+print(szukaj_inaczej([4, 4, 4, 4, 4, 4, 4, 1, 6, 6, 0]))
 
 
 
@@ -84,7 +83,7 @@ print(lid([4, 4, 4, 6, 6, 6, 6, 1, 6, 6, 0]))
 T = [3, 8, 11, 23, 24, 36, 41, 44, 49, 52]
 n = len(T) - 1
 
-def szukaj(T, lewy, prawy, element):
+def szukaj_lewy_prawy(T, lewy, prawy, element):
 
     while lewy <= prawy:
             srodek = (lewy+prawy)//2
@@ -97,7 +96,7 @@ def szukaj(T, lewy, prawy, element):
 
     return -1
 
-print(szukaj(T, 0, n, 44))
+print(szukaj_lewy_prawy(T, 0, n, 44))
 
 
 #zad 4
@@ -175,7 +174,7 @@ def haszuj(T, p):
 
 
 #sprawdzanie czy zadany element znajduje sie w tablicy asocjacyjenj
-def szukaj(T, element, p):
+def szukaj_w_tablicy(T, element, p):
     hash = haszuj(T, p)
     return element in hash.get(element % p, [])
 
