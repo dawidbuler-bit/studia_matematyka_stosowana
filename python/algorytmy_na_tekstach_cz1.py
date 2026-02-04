@@ -10,12 +10,6 @@ else:
 
 zdanie = input(str("Podaj jakieś zdanie: "))
 
-for i in zdanie:
-    if i % 2 == 1:
-        delete
-
-
-
 
 #zadanie 3
 ciag_znakow = input(str("Podaj jakiś ciąg znaków: "))
