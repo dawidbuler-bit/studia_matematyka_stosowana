@@ -1,6 +1,6 @@
-'''
+import math
 import numpy as np
-from scipy.stats import *
+import scipy.stats as stats
 
 
 imiona = np.array(['Anna','Zofia','Sylwia','Katarzyna','Teresa','Tomasz','Cezary','Zenon','Filip','Adrian'])
@@ -12,29 +12,29 @@ wzrost = np.array([179,179,151,177,170,157,151,153,160,160])
 okulary = np.array(['NIE','TAK','NIE','TAK','NIE','TAK','NIE','TAK','NIE','TAK'])
 
 print("\n")
-print("Średnia arytmetyczna wieku wynosi: ",pmean(age, p=1))
-print("Średnia geometrycza wieku wynosi: " ,gmean(age))
-print("Średnia harmoniczna wieku wynosi: " ,hmean(age))
+print("Średnia arytmetyczna wieku wynosi: ",stats.pmean(age, p=1))
+print("Średnia geometrycza wieku wynosi: " ,stats.gmean(age))
+print("Średnia harmoniczna wieku wynosi: " ,stats.hmean(age))
 print("Średnia ważona wieku wynosi: " ,np.average(age))
 print("\n")
-print("Średnia arytmetyczna wagi wynosi: ",pmean(waga, p=1))
-print("Średnia geometrycza wagi wynosi: " ,gmean(waga))
-print("Średnia harmoniczna wagi wynosi: " ,hmean(waga))
+print("Średnia arytmetyczna wagi wynosi: ",stats.pmean(waga, p=1))
+print("Średnia geometrycza wagi wynosi: " ,stats.gmean(waga))
+print("Średnia harmoniczna wagi wynosi: " ,stats.hmean(waga))
 print("Średnia ważona wagi wynosi: " ,np.average(waga))
 print("\n")
-print("Średnia arytmetyczna wzrostu wynosi: ",pmean(wzrost, p=1))
-print("Średnia geometrycza wzrostu wynosi: " ,gmean(wzrost))
-print("Średnia harmoniczna wzrostu wynosi: " ,hmean(wzrost))
+print("Średnia arytmetyczna wzrostu wynosi: ",stats.pmean(wzrost, p=1))
+print("Średnia geometrycza wzrostu wynosi: " ,stats.gmean(wzrost))
+print("Średnia harmoniczna wzrostu wynosi: " ,stats.hmean(wzrost))
 print("Średnia ważona wzrostu wynosi: " ,np.average(wzrost))
 print("\n")
 print("\n")
 
 
-print("Dla wieku: ",mode(age))
+print("Dla wieku: ",stats.mode(age))
 print("\n")
-print("Dla wagi: ",mode(waga))
+print("Dla wagi: ",stats.mode(waga))
 print("\n")
-print("Dla wzrostu: ",mode(wzrost))
+print("Dla wzrostu: ",stats.mode(wzrost))
 print("\n")
 print("\n")
 
@@ -57,17 +57,17 @@ print("\n")
 print("\n")
 
 print("Miary zmienności klasyczne dla wieku:")
-print("Odchylenie przeciętne: ",sum(abs(age-np.mean(age)))/len(age))
+print("Odchylenie przeciętne: ",sum(np.abs(age-np.mean(age)))/len(age))
 print("Wariancja: ",np.var(age))
 print("Odchylenie standardowe: ",np.std(age))
 print("\n")
 print("Miary zmienności klasyczne dla wagi:")
-print("Odchylenie przeciętne: ",sum(abs(waga-np.mean(waga)))/len(waga))
+print("Odchylenie przeciętne: ",sum(np.abs(waga-np.mean(waga)))/len(waga))
 print("Wariancja: ",np.var(waga))
 print("Odchylenie standardowe: ",np.std(waga))
 print("\n")
 print("Miary zmienności klasyczne dla wzrostu:")
-print("Odchylenie przeciętne: ",sum(abs(wzrost-np.mean(wzrost)))/len(wzrost))
+print("Odchylenie przeciętne: ",sum(np.abs(wzrost-np.mean(wzrost)))/len(wzrost))
 print("Wariancja: ",np.var(wzrost))
 print("Odchylenie standardowe: ",np.std(wzrost))
 print("\n")
@@ -89,7 +89,7 @@ print("Rozstęp ćwiartkowy: ",np.quantile(wzrost,0.75)-np.quantile(wzrost,0.25)
 print("Odchylenie ćwiartkowe ",(np.quantile(wzrost,0.75)-np.quantile(wzrost,0.25))/2)
 print("\n")
 
-'''
+
 
 #zad 2
 
