@@ -1,4 +1,4 @@
-'''
+
 
 ciag_znakow = input(str("Podaj jakiś ciąg znaków: "))
 
@@ -14,40 +14,40 @@ for i in zdanie:
     if i % 2 == 1:
         delete
 
-'''
+
 
 
 #zadanie 3
-#ciag_znakow = input(str("Podaj jakiś ciąg znaków: "))
+ciag_znakow = input(str("Podaj jakiś ciąg znaków: "))
 
-#print(ciag_znakow.replace(" ",""))
+print(ciag_znakow.replace(" ",""))
 
-#lista = ciag_znakow.split()
-#print("".join(lista))
+lista = ciag_znakow.split()
+print("".join(lista))
 
 #zadanie 4
-#print(len(ciag_znakow.split()))
+print(len(ciag_znakow.split()))
 
 
 #zadanie 5
-#dane = input(str("Jak się nazywasz? "))
-#imie = dane.split()[0]
-#nazwisko = dane.split()[1]
-#print(imie.replace(imie[:2], nazwisko[-2:]), nazwisko.replace(nazwisko[-2:],imie[:2]))
+dane = input(str("Jak się nazywasz? "))
+imie = dane.split()[0]
+nazwisko = dane.split()[1]
+print(imie.replace(imie[:2], nazwisko[-2:]), nazwisko.replace(nazwisko[-2:],imie[:2]))
 
 #zadanie 6
-#zdanie = input(str("Podaj jakieś zdanie: "))
-#zdanie = zdanie.replace("tak", "temp")
-#zdanie = zdanie.replace("nie", "tak")
-#zdanie = zdanie.replace("temp", "nie")
+zdanie = input(str("Podaj jakieś zdanie: "))
+zdanie = zdanie.replace("tak", "temp")
+zdanie = zdanie.replace("nie", "tak")
+zdanie = zdanie.replace("temp", "nie")
 
-#print(zdanie)
+print(zdanie)
 
-#zdanie = zdanie.replace("tak", "temp").replace("nie", "tak").replace("temp", "nie")
+zdanie = zdanie.replace("tak", "temp").replace("nie", "tak").replace("temp", "nie")
 
-#print(zdanie)
+print(zdanie)
 
-'''
+
 #zadanie 7
 
 ciag_znakow = input(str("Podaj jakiś ciąg znaków: "))
@@ -85,4 +85,3 @@ def sortuj_litery():
 
 
 print(sortuj_litery())
-'''
