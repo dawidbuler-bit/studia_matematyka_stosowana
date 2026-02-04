@@ -1,0 +1,104 @@
+
+#zad1
+```{r}
+url <- "https://raw.githubusercontent.com/comp-think/comp-think.github.io/refs/heads/master/laboratory/data/netflix_titles.csv"
+netflix2 <- read.csv(url, header = TRUE)
+
+netflix <- read.csv("netflix_titles.csv")
+```
+
+```{r}
+summary(netflix)
+```
+```{python}
+import pandas as pd
+```
+```{python}
+netflix = pd.read_csv("netflix_titles.csv")
+```
+
+
+
+
+#zad2
+```{r}
+netflix <- read.csv("netflix_titles.csv", na.strings = "")
+sum(is.na(netflix2))
+sum(is.na(netflix))
+```
+```{r}
+summary(is.na(netflix$rating))
+```
+
+
+```{r}
+netflix3 <- na.omit(netflix)
+```
+
+```{r}
+netflix4 <- netflix[is.na(netflix$rating) == FALSE,]
+```
+
+```{r, echo = F, eval = F}
+install.packages("readr")
+```
+```{r}
+library(readr)
+netflix <- read_csv("netflix_titles.csv")
+```
+```{r}
+netflix2 <- netflix[is.na(netflix$rating) == FALSE,]
+```
+
+#zad3
+```{r}
+table(netflix2$type)
+dim(netflix2[netflix2$type == "Movie", ])
+dim(netflix2[netflix2$type == "TV Show", ])
+```
+#zad 4
+```{r}
+install.packages("ggplot2")
+```
+```{r}
+library("ggplot2")
+ggplot(data = netflix2) +
+  geom_bar(aes(x = release_year))
+```
+```{r}
+library("ggplot2")
+ggplot(data = netflix2) +
+  geom_histogram(aes(x = release_year))
+```
+#zad 5
+```{r}
+df <- data.frame(table(rating = netflix$rating))
+df[df$Freq == max(df$Freq), ]
+```
+
+#zad 6
+```{r}
+netflix2_movie <- netflix2[netflix2$type == "Movie", ]
+```
+```{r}
+netflix2_movie$duration_min <- as.numeric(sub(" min","", netflix2_movie$duration))
+```
+
+```{r}
+summary(netflix2_movie$duration_min)
+```
+
+```{r}
+ggplot(data = netflix2_movie) + 
+  geom_boxplot(aes(x = duration_min))
+```
+#zad 7
+```{r}
+ggplot(data = netflix2_movie) + 
+  geom_boxplot(aes(x = duration_min, y = rating, color = rating))
+```
+
+```{python}
+
+```
+

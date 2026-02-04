@@ -1,0 +1,97 @@
+---
+title: "generator"
+output: html_document
+---
+
+```{r}
+# ------------------------------------------
+# Zadanie: Rozkład chi-kwadrat
+# ------------------------------------------
+
+
+n <- 13    # liczba obserwacji do wygenerowania
+k <- 13      # stopnie swobody (df)
+
+#  Generujemy zmienne losowe z rozkładu normalnego N(0,1)
+Z <- matrix(rnorm(n * k, mean = 0, sd = 1), nrow = n, ncol = k)
+
+chi <- rowSums(Z^2)
+
+srednia <- print(mean(chi))
+wariancja <- print(var(chi))
+odchylenie <- print(sd(chi))
+print(Z)
+print(chi)
+```
+
+```{r}
+# ------------------------------------------
+# Zadanie: Rozkład t-Studenta 
+# ------------------------------------------
+
+n <- 13    # liczba obserwacji do wygenerowania
+k <- 13      # stopnie swobody (df)
+
+# Generujemy zmienne losowe z rozkładu normalnego N(0,1) dla chi-kwadrat
+Z_chi <- matrix(rnorm(n * k, mean = 0, sd = 1), nrow = n, ncol = k)
+
+# Obliczamy chi-kwadrat jako sumę kwadratów po wierszach
+chi <- rowSums(Z_chi^2)
+
+# Generujemy niezależne zmienne normalne N(0,1) dla licznika t-Studenta
+Z <- rnorm(n, mean = 0, sd = 1)
+
+# Obliczamy t-Studenta
+t_student <- Z / sqrt(chi / k)
+
+# Statystyki
+srednia <- print(mean(t_student))  # Oczekiwana: ~0
+wariancja <- print(var(t_student))  # Oczekiwana: ~k/(k-2) ≈ 1.1818 dla k=13
+odchylenie <- print(sd(t_student))  # Pierwiastek z wariancji
+
+print(Z_chi)   # Macierz dla chi-kwadrat
+print(chi)     # Wartości chi-kwadrat
+print(Z)   # Wektor licznika
+print(t_student)  # Wartości t-Studenta
+```
+
+
+```{r}
+# ------------------------------------------
+# Zadanie: Rozkład F-Snedecora 
+# ------------------------------------------
+
+n <- 10000   # liczba obserwacji do wygenerowania
+k_1 <- 13   # stopnie swobody licznika (chi-kwadrat X)
+k_2 <- 17   # stopnie swobody mianownika (chi-kwadrat Y)
+
+# Generujemy zmienne losowe z rozkładu normalnego N(0,1) dla chi-kwadrat licznika
+Z_X <- matrix(rnorm(n * k_1, mean = 0, sd = 1), nrow = n, ncol = k_1)
+
+# Obliczamy chi-kwadrat licznika jako sumę kwadratów po wierszach
+chi_X <- rowSums(Z_X^2)
+
+# Generujemy zmienne losowe z rozkładu normalnego N(0,1) dla chi-kwadrat mianownika (niezależne)
+Z_Y <- matrix(rnorm(n * k_2, mean = 0, sd = 1), nrow = n, ncol = k_2)
+
+# Obliczamy chi-kwadrat mianownika jako sumę kwadratów po wierszach
+chi_Y <- rowSums(Z_Y^2)
+
+# Obliczamy rozkład F-Snedecora
+f_sned <- (chi_X / k_1) / (chi_Y / k_2)
+
+# Statystyki
+srednia <- print(mean(f_sned))  # Oczekiwana: k_2/(k_2-2) ≈ 1.133 dla d2=17
+wariancja <- print(var(f_sned))  # Oczekiwana: 2*d2^2*(d1+d2-2)/(d1*(d2-2)^2*(d2-4)) ≈ 0.345
+odchylenie <- print(sd(f_sned))  # Pierwiastek z wariancji
+
+# Wyświetlanie wyników (opcjonalnie)
+print(Z_X)   # Macierz dla licznika
+print(chi_X) # Wartości chi-kwadrat licznika
+print(Z_Y)   # Macierz dla mianownika
+print(chi_Y) # Wartości chi-kwadrat mianownika
+print(f_sned) # Wartości F-Snedecora
+
+
+```
+

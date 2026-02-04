@@ -1,0 +1,118 @@
+```{r}
+v1 <- c(1:20)
+```
+
+```{r}
+v2 <- c(seq(2,20,2))
+```
+
+```{r}
+v2 + 1
+```
+```{r}
+v3 <- c(seq(1,20, 0.5))
+```
+
+```{r}
+v4 <- c(seq(10,1,-1))
+```
+
+```{r}
+v4 - v3
+```
+```{r}
+v5 <- sin(v3)
+v6 <- cos(v3)
+```
+
+```{r}
+plot(v5*v6)
+```
+#CZĘŚĆ DRUGA
+
+```{r}
+v1 <- c(0:3)
+typeof(v1)
+class(v1)
+str(v1)
+```
+
+```{r}
+v2 <- c(0/0, 1/0, 1/Inf, TRUE, as.numeric("abc"))
+typeof(v2)
+class(v2)
+str(v2)
+```
+
+```{r}
+v3 <- c("T", "False", "abc")
+typeof(v3)
+class(v3)
+str(v3)
+```
+```{r}
+v4 <- as.logical("T", "False", "abc")
+typeof(v4)
+class(v4)
+str(v4)
+```
+```{r}
+v5 <- vector(mode = "numeric", length = 9)
+typeof(v5)
+class(v5)
+str(v5)
+```
+```{r}
+v5[1:4] <- 1:4
+v5[6:9] <- 6:9
+v5[5] <- "NULL"
+typeof(v5)
+v5[5]
+```
+```{r}
+as.numeric(v5)
+v5[5]
+```
+```{r}
+!is.na(v5)
+```
+```{r}
+v6 <- c(1:5)
+v7 <- c(6:10)
+v6 + v7
+v6 - v7
+v6 * v7
+v6 / v7
+v6 == v7
+v6 >= 3
+```
+
+#czesc 3
+
+
+
+```{r}
+v1 <- rep(1, times = 8)
+v2 <- rep(0, times = 199)
+```
+
+```{r}
+v3 <- c(10:20)
+sum(v3^2)
+```
+```{r}
+sum(sqrt(log10(10^(0:12))))
+```
+```{r}
+rep(1, times = 8)
+rep(1:2 , times = 6)
+rep(c(0,1), each = 8, length.out = 12)
+rep(c(4,3,2,1), times = 1:4)
+rep(c(23,32,42), c(3,1,2))
+rep(c("A","B"), times = 3)
+```
+
+
+
+
+

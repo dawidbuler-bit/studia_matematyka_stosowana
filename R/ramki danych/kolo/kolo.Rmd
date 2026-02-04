@@ -1,0 +1,53 @@
+---
+output:
+  pdf_document: default
+---
+```{r}
+pr <- "pracownik"
+v1 <- c(paste(pr, 1:100))
+```
+
+```{r}
+losowe <- runif(100,40000,100000)
+round_losowe <- round(losowe, digits = 2)
+wynagrodzenia <- c(round_losowe)
+```
+
+```{r}
+losowe2 <- runif(100,-5000,10000)
+losowe2 <- c(losowe2)
+```
+
+```{r}
+salaries <- data.frame(v1, wynagrodzenia,losowe2 , stringsAsFactors = FALSE)
+korekta <- wynagrodzenia + losowe2
+salaries <- data.frame(v1, wynagrodzenia,losowe2, korekta , stringsAsFactors = FALSE)
+```
+
+```{r}
+podwyzka <- salaries[,"wynagrodzenia"] < salaries[,"korekta"]
+salaries <- data.frame(v1, wynagrodzenia,losowe2, korekta ,podwyzka, stringsAsFactors = FALSE)
+```
+```{r}
+pracownik57 <- salaries[57,2]
+ile_podwyzek <- nrow(salaries[salaries$podwyzka == TRUE,])
+pracownik_najwyzsza_podwyzka <- salaries$v1[salaries$losowe2 == max(salaries[,"losowe2"])]
+najwyzsza_podwyzka <- max(salaries[,"losowe2"])
+najwiekszy_spadek <- min(salaries[,"losowe2"])
+pracownik_najwyzsza_znizka <- salaries$v1[salaries$losowe2 == min(salaries[,"losowe2"])]
+srednia_zmiana <- mean(salaries$losowe2)
+
+write.csv(salaries,file = "salaries.csv",quote = FALSE)
+library("ggplot2")
+```
+```{r}
+ggplot(data = salaries, mapping =
+  aes(x = korekta, color= "green")) +
+geom_histogram(bins = 10)
+```
+```{r}
+ggplot(data = salaries, mapping =
+aes(x = korekta)) +
+geom_boxplot()
+```
+

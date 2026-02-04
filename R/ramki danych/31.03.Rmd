@@ -1,0 +1,38 @@
+```{r}
+z$Plec
+z[["Plec"]]
+z[[1]]
+```
+
+```{r}
+w <- z[3,]
+typeof(w)
+class(w)
+attributes(w)
+```
+
+```{r}
+z$Plec <- factor(z$Plec)
+typeof(z)
+attributes(z)
+class(z)
+```
+
+```{r}
+plot(z$Waga,z$Wzrost)
+```
+
+```{r}
+z$Plec <- factor(z$Plec,
+levels = c(0 , 1), labels = c("Male", "Female"))
+```
+
+```{r}
+z$Kolor <- as.factor(z$Kolor)
+class(z$Kolor)
+```
+
+```{r}
+
+```
+

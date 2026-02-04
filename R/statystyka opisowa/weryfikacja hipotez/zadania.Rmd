@@ -1,0 +1,241 @@
+```{r}
+dane1 <- c(18.1, 17.0, 17.5, 18.3, 16.7, 18.0, 15.9, 17.6, 15.8)
+t.test(dane1, mu = 17, conf.level = 0.9)
+#nie ma podstaw do odrzucenia
+```
+```{r}
+dane2 <- c(4.7, 5.3, 4.0, 3.8, 6.2, 5.5, 4.5, 6.0)
+t.test(dane2, mu = 4.5, conf.level = 0.95, alternative = "greater")
+#nie ma potrzeb do odrzucenia
+```
+```{r}
+grupa1 <- c(71, 63, 74, 54, 51, 87, 51, 80, 86, 77, 58, 60)
+t.test(grupa1, conf.level = 0.95) #59.27973 76.05360
+t.test(grupa1, conf.level = 0.9) #60.82338 74.50995
+t.test(grupa1, mu = 70, conf.level = 0.95, alternative = "two.sided") # nie ma podstaw do odrzucenia 
+t.test(grupa1, mu = 65, conf.level = 0.95, alternative = "greater") # nie ma podstaw do odrzucenia 
+```
+```{r}
+grupa2 <- c(77, 82, 90, 71, 70, 72, 72, 100, 76, 66, 59, 67, 66, 81)
+t.test(grupa2, conf.level = 0.95) # 68.76604 81.09110
+t.test(grupa2, conf.level = 0.9) # 69.87692 79.98023
+t.test(grupa2, mu = 70, conf.level = 0.95) # nie ma podstaw do odrzucenia
+t.test(grupa2, mu = 65, conf.level = 0.95, alternative = "greater") # odrzucamy H_0 na rzecz H_1
+```
+```{r}
+t.test(grupa1, grupa2) #nie ma istotnych różnic , poniewaz p-value jest większe od alphy = 0.05)
+```
+
+
+```{r}
+#zad domowe , napisac hipotezy oraz wnioski
+```
+
+
+```{r}
+danex <- c(10,5,7,2,5,8,3,5,10,6)
+t.test(danex,mu = 6, conf.level = 0.98)
+```
+
+##Praca domowa 2
+
+```{r}
+K <- c(21,44,43,13,5)
+M <- c(35,68,80,39,17)
+
+chisq.test(cbind(K,M))
+```
+```{r}
+qchisq(0.95, 4)
+```
+```{r}
+k <- c(17,44,43)
+m <- c(27,68,80)
+```
+```{r}
+chisq.test(cbind(k,m))
+```
+
+```{r}
+buty.wzrost<-c(189,160,170,171,180,161,190,182,155,175)
+buty.rozmiar<-c(45,38,39,36,42,39,45,46,36,43)
+
+cor(buty.rozmiar,buty.wzrost)
+qt(0.975,8)
+cor.test(buty.wzrost,buty.rozmiar, alternative = "less")
+```
+##03.06
+
+
+##Zad1
+
+```{r}
+install.packages("ggplot2")
+```
+
+#a)
+
+```{r}
+buty.wzrost<-c(165,160,173,172,160,193,197,179,161,180,182,155,175,194,160,206)
+buty.rozmiar<-c(38,37,41,39,36,45,48,44,38,42,46,36,43,45,36,48)
+
+x <- buty.wzrost
+y <- buty.rozmiar
+
+library("ggplot2")
+ggplot()+
+geom_point(mapping = aes(x = x, y = y))
+```
+
+#b)
+
+```{r}
+cor(x,y)
+
+cor.test(x,y)
+```
+
+#c)
+
+```{r}
+fit.lm<-lm(y~x)
+fit.lm
+
+plot(x, y, main = 'Korelacja między wzrostem a rozmiarem buta', xlab ='wzro
+st', ylab = ' numer buta', pch=19, col="blue")
+abline(fit.lm, col='red')
+```
+
+#d)
+
+```{r}
+prosta <- coef(fit.lm)
+beta0<-coef(fit.lm)[1]
+beta1<-coef(fit.lm)[2]
+
+y.m<-beta0+beta1*x
+
+
+roznice <- round(buty.rozmiar-y.m, 1)
+
+y.sr<-mean(y)
+
+ssm<-sum((y.m-y.sr)^2)
+
+sst<-sum((y-y.sr)^2)
+
+R.2 = ssm/sst #stopień dopasowania modelu
+
+R.2
+
+R.2_skor <- R.2-(1-R.2)/(10-2)
+
+#błędy oszacownia regresji liniowej
+
+e <- y-y.m
+se<-sqrt(sum(e^2)/(10-2))
+
+#shapiro.test(e)
+
+x.sr <- mean(x)
+s.beta1<-sqrt(se^2/sum((x-x.sr)^2))
+
+n=10
+s.beta0<-sqrt(se^2*sum(x^2)/ (n*sum((x-x.sr)^2)))
+
+summary(fit.lm)
+
+#model liniowy jest istotny, a konkretnie współczynnik beta1 , ponieważ statystyka parametru beta1 mieści się w obszarze krytycznym
+```
+
+#e)
+
+```{r}
+e <- y - y.m
+plot(x, fit.lm$residuals); abline(h=0)
+
+cbind(buty.wzrost,buty.rozmiar,round(y.m,1))
+```
+#f)
+
+
+```{r}
+predykcja <- beta0+beta1*172
+predykcja
+```
+
+#g)
+
+```{r}
+rozm.teor<-ceiling(predict(lm(y ~ x)))
+pred2 <- ceiling(predict(lm(y ~ x), interval = "confidence"))
+cbind(buty.wzrost,buty.rozmiar, pred2)
+```
+
+
+##zad2
+
+```{r}
+n = 13
+godziny <- c(167, 167, 155, 118, 159, 141, 130, 145, 135, 145, 135, 145, 127)
+wypadki <- c(135, 129, 118, 134, 120, 109, 92, 138, 132, 138, 135, 111, 132)
+x <- godziny
+y <- wypadki
+
+cor(x,y)
+
+cor.test(x,y, conf.level = 0.95)
+```
+
+```{r}
+fit.lm<-lm(y~x)
+fit.lm
+
+plot(x, y, main = 'Korelacja między godzinami a wypadkami', xlab ='godziny', ylab = 'wypadki', pch=19, col="blue")
+abline(fit.lm, col='red')
+```
+```{r}
+prosta <- coef(fit.lm)
+beta0<-coef(fit.lm)[1]
+beta1<-coef(fit.lm)[2]
+
+y.m<-beta0+beta1*x
+
+
+roznice <- round(y-y.m, 1)
+
+y.sr<-mean(y)
+
+ssm<-sum((y.m-y.sr)^2)
+
+sst<-sum((y-y.sr)^2)
+
+R.2 = ssm/sst #stopień dopasowania modelu
+
+R.2
+
+R.2_skor <- R.2-(1-R.2)/(10-2)
+
+#błędy oszacownia regresji liniowej
+
+e <- y-y.m
+se<-sqrt(sum(e^2)/(10-2))
+
+#shapiro.test(e)
+
+x.sr <- mean(x)
+s.beta1<-sqrt(se^2/sum((x-x.sr)^2))
+
+s.beta0<-sqrt(se^2*sum(x^2)/ (n*sum((x-x.sr)^2)))
+
+t_beta1 <- beta1/s.beta1
+t_beta0 <- beta0/s.beta0
+
+t_beta1
+t_beta0
+
+summary(fit.lm)
+
+#model liniowy jest istotny, a konkretnie współczynnik beta1 , ponieważ statystyka parametru beta1 mieści się w obszarze krytycznym
+```
+

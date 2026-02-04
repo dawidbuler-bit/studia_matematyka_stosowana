@@ -1,0 +1,36 @@
+```{r}
+co2 <- read.csv("owid-co2-data.csv")
+```
+
+```{r}
+summary(is.na(co2))
+```
+
+```{r}
+co2_2020 <- co2[co2$year == 2020, c("country","co2")]
+```
+
+```{r}
+summary(is.na(co2_2020))
+```
+
+```{r}
+co2_2020 <- subset(co2, year == 2020)
+co2_2020 <- co2_2020[ ,c("country","co2")]
+co2_2020 <- na.omit(co2_2020)
+#co2_2020 <- co2_2020[is.na(co2_2020$co2), ]
+co2_2020[order(-co2_2020$co2), ]
+head(co2_2020[order(-co2_2020$co2), ],10)
+```
+```{r}
+install.packages("ggplot2")
+```
+
+```{r}
+library("ggplot2")
+co2_2020 <- co2[co2$year == 2020,]
+ggplot(data = co2_2020) +
+  geom_histogram(aes(x = co2_per_capita))
+```
+
+
