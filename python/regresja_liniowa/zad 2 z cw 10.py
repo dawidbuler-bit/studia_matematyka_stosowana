@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
-'''
+
 dl_x = np.array([80, 90, 100 ,100 ,110 , 120])
 koszt = np.array([12, 9, 10, 9, 8, 6])
 
@@ -22,7 +22,6 @@ plt.plot(a, b, 'r')
 plt.plot(dl_x, koszt, 'o')
 plt.show()
 
-'''
 
 produkcja = np.array([11, 12, 13, 13, 14, 14, 17, 18, 18, 20])
 koszty = np.array([18, 20, 20, 20, 22, 24, 26, 27, 26, 27])
